@@ -5,6 +5,11 @@ from rest_framework.views import APIView
 
 class MeView(APIView):
     permission_classes = [IsAuthenticated]
-    def get(self, request): return Response({"id": request.user.id, "username": request.user.username})
-
-# Create your views here.
+    def get(self, request):
+        u = request.user
+        return Response({
+            "id": u.id,
+            "username": u.username,
+            "email": u.email,
+            "is_staff": u.is_staff,
+        })
