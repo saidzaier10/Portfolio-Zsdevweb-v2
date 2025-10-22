@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework', # Added for DRF
     'core', # Added core app after created urls and views
     'corsheaders', # Added for CORS handling
-    'rest_framework' # Added for DRF
+    'rest_framework_simplejwt', # Added for JWT authentication
+    'users', # Added users app after created urls and views
 ]
 
 MIDDLEWARE = [
