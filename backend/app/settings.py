@@ -40,9 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', # Added for DRF
     'core', # Added core app after created urls and views
+    'corsheaders', # Added for CORS handling
+    'rest_framework' # Added for DRF
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', # Added for CORS handling
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,6 +54,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+  "DEFAULT_AUTHENTICATION_CLASSES": (
+    "rest_framework_simplejwt.authentication.JWTAuthentication",
+  ),
+} # Added for JWT authentication
+
+CORS_ALLOW_ALL_ORIGINS = True # Added for CORS handling
+
 
 ROOT_URLCONF = 'app.urls'
 
